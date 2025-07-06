@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色相チェッカー</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>色相チェッカー</h1>
+        </header>
+        <main class="app-container">
+            <div class="controls">
+                <section class="card preset-colors-card">
+                    <h2>プリセットカラー</h2>
+                    <div class="color-grid" id="color-grid"></div>
+                </section>
+                <section class="card hue-slider-card">
+                    <h2>色相 (Hue)</h2>
+                    <div class="color-spectrum-bar"></div>
+                    <input type="range" min="0" max="360" value="0" class="slider" id="hue-slider">
+                    <span id="hue-value">0°</span>
+                </section>
+            </div>
+            <div class="previews">
+                <section class="card main-preview-card">
+                    <h2>選択中の色</h2>
+                    <div class="color-box-large" id="main-preview"></div>
+                    <p class="color-label" id="main-hex-label">#FFFFFF</p>
+                </section>
+                <section class="card harmony-colors-card">
+                    <h2>カラーハーモニー</h2>
+                    <div class="harmony-grid">
+                        <div class="color-card">
+                            <div class="color-box" id="harmony-original"></div>
+                            <p class="color-label-small">選択色</p>
+                            <p class="color-label" id="harmony-original-hex">#FFFFFF</p>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-box" id="harmony-analogous-neg"></div>
+                            <p class="color-label-small">アナログ色 (-30°)</p>
+                            <p class="color-label" id="harmony-analogous-neg-hex">#FFFFFF</p>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-box" id="harmony-analogous"></div>
+                            <p class="color-label-small">アナログ色 (+30°)</p>
+                            <p class="color-label" id="harmony-analogous-hex">#FFFFFF</p>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-box" id="harmony-triadic"></div>
+                            <p class="color-label-small">トライアド色 (+120°)</p>
+                            <p class="color-label" id="harmony-triadic-hex">#FFFFFF</p>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-box" id="harmony-complement"></div>
+                            <p class="color-label-small">反対色 (+180°)</p>
+                            <p class="color-label" id="harmony-complement-hex">#FFFFFF</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="download-buttons card">
+                <button id="download-csv">Download CSV</button>
+                <button id="download-json">Download JSON</button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
